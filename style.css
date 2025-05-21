@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card{
+    width: 550px;
+    height: 700px;
+    border-radius: 20px;
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+#top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px 10px 20px;
+}
+
+.div-top{
+    color: var(--btn-add);
+}
+
+.div-top #day{
+    font-size: 2.5em;
+    font-weight: 800;
+}
+
+.div-top #date{
+    font-size: 1.5em;
+    font-weight: 100;
+}
+
+.div-bottom #month{ 
+    color: var(--text-secondary);
+    font-size: 1.5em;
+}
+
+.total-todo{
+    font-size: .8em;
+    color: var(--text-secondary);
+}
+
+
+#input-container{
+    height: 90px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#todo-input{    
+    height: 100%;
+    flex: 1;
+    border: 2px solid var(--btn-add);
+    border-radius: 20px;
+    padding-left: 10px;
+    background-color: transparent;
+    color: var(--text-secondary);
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#add-btn{
+    height: 100%;
+    width: 50px;
+    /* color: var(--text-primary); */
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: var(--btn-add);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lists{
+    flex: 1;
+    padding: 0 20px;
+    overflow: scroll;
+}
+
+#todolist{
+    width: 100%;
+    height: 100%;
+    /* background-color: #2E2E2E; */
+}
+
+#emptylist{
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#emptylist img{
+    width: 80%;
+    height: 100%;
+    opacity: .3;
+}
+
+#bottom{
+    margin: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details{
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--btn-add);
+    transform-origin: left;
+}
+
+.details:hover{
+     transform: scale(2.1); /* scale to 110% on hover */
+}
+
+#delete-all{
+    cursor: pointer;
+    color: var(--text-primary); 
+}
+
+#delete-all:hover{
+    color: #ff0000;
+     transform: scale(1.1); /* scale to 110% on hover */
+}
+
+.details, #delete-all{
+    font-size: .8em;
+    font-weight: 800;
+    opacity: .5;
+    display: inline-block; /* required for transform to work properly */
+    transition: transform 0.3s ease-in-out, color .3s ease-in-out;
+}
+
+/* For Custom CheckBox */
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox box */
+.custom-checkbox .checkmark {
+  height: 40px;
+  width: 40px;
+  background-color: var(--text-secondary);
+  border: 2px solid var(--text-secondary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 10px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* On hover */
+.custom-checkbox:hover .checkmark {
+  background-color: var(--btn-add);
+}
+
+/* When checked: black box */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--btn-add);
+  border-color: var(--btn-add);
+}
+
+/* White checkmark */
+.custom-checkbox .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 16px;
+  top: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Show tick on checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  display: block;
+}
+
+/* Normal text */
+.label-text {
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+/* Line-through when checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked ~ .label-text {
+  text-decoration: line-through;
+  color: #888; /* optional: make it gray */
+}
+
+
+
+#tasks{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item:hover{
+    background-color: var(--task-highlight);
+}
+
+.todo-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+}
+
+.todo-item .todo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.todo0item .completed label{
+    text-decoration: line-through;
+}
+
+.todo input{
+    width: 20px;
+    height: 20px;
+}
+
+.icons img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.color-themes{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px 30px 0 0;
+    gap: 10px;
+}
+
+.color-themes div{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--btn-add);
+    color: var(--btn-add);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-themes div:hover{
+    background-color: var(--btn-add);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
