@@ -140,7 +140,8 @@ body{
 }
 
 .details:hover{
-     transform: scale(2.1); /* scale to 110% on hover */
+    cursor: none;
+    transform: scale(2.1); /* scale to 110% on hover */
 }
 
 #delete-all{

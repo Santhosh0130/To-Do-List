@@ -76,10 +76,15 @@ themes.forEach((theme, index) => {
 let todos = []
 
 document.getElementById("add-btn").addEventListener("click", function(e){
-    e.preventDefault;
-
+    e.preventDefault();
     addTodo();
 })
+document.getElementById("todo-input").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        addTodo();
+    }
+});
 
 window.onload = function () {
 
